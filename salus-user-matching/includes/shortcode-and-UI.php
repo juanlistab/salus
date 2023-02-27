@@ -98,33 +98,13 @@ add_action( 'wp_ajax_nopriv_salus_user_matching_send_request', 'salus_user_match
         $message_html = '';
     }
 
-    // Add an event listener to the "Connect" button to send an AJAX request.
-    $script_html = '<script>
-        jQuery(document).ready(function($) {
-            $(".connect-button").click(function(event) {
-                event.preventDefault();
-                var connectButton = $(this);
-                connectButton.addClass("loading");
-                connectButton.html("Sending request...");
-                var profile_id = connectButton.data("profile-id");
-                var data = {
-                    action: "salus_user_matching_send_request",
-                    profile_id: profile_id,
-                    match_percentage: ' . $match_percentage . ',
-                };
-                $.post(ajaxurl, data, function(response) {
-                    if (response === "success") {
-                        connectButton.removeClass("loading");
-                        connectButton.html("Connection Request Sent");
-                    } else {
-                        connectButton.removeClass("loading");
-                        connectButton.html("Error Sending Request");
-                    }
-                });
-                });
-                });
-                </script>';
+    // Call the JS file to add an event listener to the "Connect" button to send an AJAX request.
+    function salus_user_matching_scripts() {
+        wp_enqueue_script( 'salus-user-matching', plugin_dir_url( __FILE__ ) . 'js/salus-user-matching.js', array( 'jquery' ), '1.0', true );
+      }
+      add_action( 'wp_enqueue_scripts', 'salus_user_matching_scripts' );
+      
                 
-                return $button_html . $message_html . $script_html;
-                }
+return $button_html . $message_html;
+}
                 

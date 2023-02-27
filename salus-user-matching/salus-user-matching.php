@@ -16,12 +16,6 @@ function salus_user_matching_init() {
         return;
     }
 
-    // Load the "matching-algorithm.php" file.
-    //require_once SALUS_USER_MATCHING_PLUGIN_DIR_PATH . 'includes/matching-algorithm.php';
-
-    // Load the "email-functionality.php" file.
-    // require_once SALUS_USER_MATCHING_PLUGIN_DIR_PATH . 'includes/email-functionality.php';
-
     // Load the "shortcode-and-UI.php" file.
     require_once SALUS_USER_MATCHING_PLUGIN_DIR_PATH . 'includes/shortcode-and-UI.php';
 

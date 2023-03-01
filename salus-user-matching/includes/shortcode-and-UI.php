@@ -124,7 +124,6 @@ add_action( 'wp_ajax_nopriv_salus_user_matching_send_request', 'salus_user_match
                 });
                 });
                 </script>';
-                
+
                 return $button_html . $message_html . $script_html;
                 }
-                

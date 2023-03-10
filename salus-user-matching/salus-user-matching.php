@@ -23,9 +23,6 @@ function salus_user_matching_init() {
     // Load the "salus-user-matching-send-request.php" file.
     require_once SALUS_USER_MATCHING_PLUGIN_DIR_PATH . 'includes/salus-user-matching-send-request.php';
 
-    // Load the "salus-connection-request-accept.php" file.
-    require_once SALUS_USER_MATCHING_PLUGIN_DIR_PATH . 'includes/salus-connection-request-accept.php';
-
     // Register the "skills_match_percentage" shortcode.
     add_shortcode( 'skills_match_percentage', 'calculate_skill_match' );
 
